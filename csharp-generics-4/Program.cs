@@ -7,11 +7,12 @@ namespace DataStructures
         static void Main(string[] args)
         {            
             var buffer = new CircularBuffer<double>(capacity:3);
+            //绑定事件委托
             buffer.ItemDiscarded += ItemDiscarded;            
             
             ProcessInput(buffer);
          
-            buffer.Dump(d => Console.WriteLine(d));
+            buffer.Dump(d => Console.WriteLine("dump:"+d));
             
             ProcessBuffer(buffer);
         }

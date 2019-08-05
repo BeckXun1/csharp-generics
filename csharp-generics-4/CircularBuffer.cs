@@ -17,7 +17,9 @@ namespace DataStructures
             base.Write(value);
             if (_queue.Count > _capacity)
             {
+                // 当队列超过体积推出第一个压入的队列
                 var discard = _queue.Dequeue();
+                //利用事件委托监听处理
                 OnItemDiscarded(discard, value);
             }
         }
@@ -30,7 +32,7 @@ namespace DataStructures
                 ItemDiscarded(this, args);
             }
         }
-
+        //事件句柄
         public event EventHandler<ItemDiscardedEventArgs<T>> ItemDiscarded;
 
         public bool IsFull { get { return _queue.Count == _capacity; } }

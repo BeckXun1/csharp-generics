@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-
+using System;
 namespace DataStructures
 {
     public class Buffer<T> : IBuffer<T>
