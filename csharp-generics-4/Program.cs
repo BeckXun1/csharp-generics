@@ -9,7 +9,12 @@ namespace DataStructures
             var buffer = new CircularBuffer<double>(capacity:3);
             //绑定事件委托
             buffer.ItemDiscarded += ItemDiscarded;            
-            
+            Converter<double,DateTime> converter = d=>new DateTime(2019/08/07).AddDays(d);
+            var output = buffer.Map(converter);
+            foreach(var item in output)
+            {
+                Console.WriteLine($"item:{item}");
+            }
             ProcessInput(buffer);
          
             buffer.Dump(d => Console.WriteLine("dump:"+d));
